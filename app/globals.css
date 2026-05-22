@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  /* Primary Base */
+  --color-warm-white: #fcfbf9;
+  --color-ivory: #fffff0;
+  --color-soft-cream: #f9f6f0;
+  --color-matte-beige: #f3efe6;
+  --color-light-champagne: #faeedf;
+
+  /* Accent Colors From Logo */
+  --color-deep-red: #8b181b;
+  --color-bright-red: #c62828;
+  --color-orange-grad: #e25822;
+  --color-soft-amber: #dca359;
+
+  /* Neutral Text */
+  --color-rich-charcoal: #2a2a2a;
+  --color-warm-gray: #7a7571;
+  --color-soft-black: #1a1a1a;
+
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
+}
+
+:root {
+  --background: var(--color-warm-white);
+  --foreground: var(--color-rich-charcoal);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
+
+/* Luxury Grain Overlay */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Hide scrollbar for clean luxury feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-soft-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-warm-gray);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-rich-charcoal);
+}
+
+/* Utilities for logo accents */
+.bg-gradient-brand {
+  background: linear-gradient(135deg, var(--color-deep-red) 0%, var(--color-orange-grad) 100%);
+}
+.text-gradient-brand {
+  background: linear-gradient(135deg, var(--color-deep-red) 0%, var(--color-orange-grad) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
