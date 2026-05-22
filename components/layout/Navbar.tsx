@@ -38,7 +38,7 @@ export function Navbar() {
               src="/logo.jpeg"
               alt="Nexaa Media"
               fill
-              className="object-contain object-left"
+              className="object-contain object-left mix-blend-multiply"
               priority
             />
           </Link>

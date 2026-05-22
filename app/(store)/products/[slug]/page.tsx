@@ -2,6 +2,7 @@ import { getProductBySlug } from "@/services/woocommerce/client";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { ProductActions } from "@/components/product/ProductActions";
+import { ShareButton } from "@/components/product/ShareButton";
 import { Metadata } from "next";
 
 export async function generateMetadata(
@@ -72,9 +73,12 @@ export default async function SingleProductPage(
                   </span>
                 </div>
                 
-                <h1 className="text-4xl md:text-5xl font-serif text-[var(--color-rich-charcoal)] mb-4 leading-[1.1] tracking-tight">
-                  {product.name}
-                </h1>
+                <div className="flex items-start justify-between gap-4 mb-4">
+                  <h1 className="text-4xl md:text-5xl font-serif text-[var(--color-rich-charcoal)] leading-[1.1] tracking-tight">
+                    {product.name}
+                  </h1>
+                  <ShareButton title={product.name} />
+                </div>
                 
                 <p className="text-xl font-serif text-[var(--color-warm-gray)]">
                   Starting at <span className="text-[var(--color-rich-charcoal)]">₹{parseFloat(product.price).toFixed(0)}/card</span>
